@@ -115,6 +115,10 @@ const absurdBubbleSort = function (arr, sortCompletionCallback) {
 
 
 Function.prototype.myBind = function myBind (context) {
+  // const that = this;
+  // return function () {
+  //   that.apply(context);
+  // };
   return () => {
     this.apply(context);
   };
