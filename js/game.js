@@ -60,17 +60,35 @@ class Game {
   }
 }
 
+Game.prototype.run = function () {
+  if (this.promptMove(this.move)) {
+    this.print();
+  } else {
+    console.log('error, invalid move');
+  }
+  if (this.isWon) {
+    console.log('game over!');
+    reader.close();
+    return;
+  } else {
+    this.run();
+  }
+};
+
+
+
+
 const g = new Game();
+g.run();
 // g.promptMove((s, e) => console.log(`${s} ${e}`));
 // console.log(g.isValidMove(0, 2));
 // console.log(g.isValidMove(1, 0));
 // console.log(g.isValidMove(1, 2));
-g.move(0,2);
-g.move(0,1);
-g.move(2,1);
-g.move(0,2);
-g.move(1,0);
-g.move(1,2);
-g.move(0,2);
-console.log(g.isWon());
-reader.close();
+// g.move(0,2);
+// g.move(0,1);
+// g.move(2,1);
+// g.move(0,2);
+// g.move(1,0);
+// g.move(1,2);
+// g.move(0,2);
+// console.log(g.isWon());
